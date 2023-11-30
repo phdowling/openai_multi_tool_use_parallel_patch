@@ -2,7 +2,7 @@
 Quick monkey-patching fix for OpenAI's hallucinated multi_tool_use.parallel issue.
 
 This is a simple workaround for [this issue](https://community.openai.com/t/model-tries-to-call-unknown-function-multi-tool-use-parallel/490653) where the GPT ChatCompletions API sometimes hallucinates a strange alternative way of calling multiple tools at once.
-In my experience, these calls at least always follow a predictable structure and can be hotfixed to look like normal, legal toll calls. This patch does that, and also rewrites the message accordingly (which, in my experience, makes the model perform calls work in the normal expected way.)
+In my experience, these calls at least always follow a predictable structure and can be hotfixed to look like normal, legal tool calls. This patch does that, and also rewrites the message accordingly (which, in my experience, makes the model perform calls work in the normal expected way.)
 
 This fix will be redundant soon, but it looks like I am not the only one who occasionally runs into this error, so I thought I would share this workaround.
 
