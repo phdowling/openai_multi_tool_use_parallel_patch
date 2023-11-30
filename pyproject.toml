@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "openai-multi-tool-use-parallel-patch"
+version = "0.1.0"
+description = "Quick monkey-patching fix for OpenAI's hallucinated multi_tool_use.parallel"
+authors = ["Philipp Dowling <phdowling@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7.1"
+openai = "^1.3.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
