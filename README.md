@@ -7,7 +7,7 @@ In my experience, these calls at least always follow a predictable structure and
 This fix will be redundant soon, but it looks like I am not the only one who occasionally runs into this error, so I thought I would share this workaround.
 
 ## Installation and usage
-`pip install openai_multi_tool_use_parallel_patch`
+`pip install openai-multi-tool-use-parallel-patch`
 
 In your code:
 ```python
