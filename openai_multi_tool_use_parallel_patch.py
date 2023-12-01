@@ -21,14 +21,16 @@ def fix_tool_calls(tool_calls: Optional[List[openai.types.chat.ChatCompletionMes
             logging.debug("OpenAI did a weird pseudo-multi-tool-use call, fixing call structure..")
             for _fake_i, _fake_tool_use in enumerate(function_args['tool_uses']):
                 _function_args = _fake_tool_use['parameters']
-                _current_function = _fake_tool_use['recipient_name'].removeprefix("functions.")
+                _current_function = _fake_tool_use['recipient_name']
+                if _current_function.startswith("functions."):
+                    _current_function = _current_function[len("functions."):]
 
                 fixed_tc = openai.types.chat.ChatCompletionMessageToolCall(
                     id=f'{tool_call.id}_{_fake_i}',
                     type='function',
                     function=openai.types.chat.chat_completion_message_tool_call.Function(
                         name=_current_function,
-                        arguments=json.dumps(function_args)
+                        arguments=json.dumps(_function_args)
                     )
                 )
                 replacements[i].append(fixed_tc)
